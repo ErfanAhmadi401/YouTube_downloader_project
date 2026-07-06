@@ -1,0 +1,52 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Django
+db.sqlite3
+media/
+
+# Environment Variables
+.env
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+
+# Logs
+*.log
+
+# Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Migrations (اختیاری)
+# **/migrations/*.py
+# !**/migrations/__init__.py
+
+# Static collected files
+staticfiles/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
