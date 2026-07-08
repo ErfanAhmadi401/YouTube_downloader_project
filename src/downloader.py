@@ -10,9 +10,13 @@ class YouTubeDownloader:
         self.download_path = Path("downloads")
         self.download_path.mkdir(exist_ok=True)
 
-    def download(self, url: str):
+    def download(self, url: str, quality=None):
         options = {
-            "format": "bestvideo+bestaudio/best",
+            "format": (
+                f"bestvideo[height<={quality}]+bestaudio/best[height<={quality}]"
+                if quality
+                else "bestvideo+bestaudio/best"
+            ),          
             "merge_output_format": "mp4",
             "outtmpl": str(self.download_path / "%(title)s.%(ext)s"),
             "cookiesfrombrowser": ("chrome",),
@@ -21,3 +25,11 @@ class YouTubeDownloader:
 
         with YoutubeDL(options) as ydl:
             ydl.download([url])
+            
+    def get_info(self, url: str):
+        options = {
+            "cookiesfrombrowser": ("chrome",),
+        }
+
+        with YoutubeDL(options) as ydl:
+            return ydl.extract_info(url, download=False)

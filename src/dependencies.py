@@ -26,3 +26,5 @@ class DependencyChecker:
                 DependencyInstaller.show_guide(item)
 
             return False
+
+        return True
