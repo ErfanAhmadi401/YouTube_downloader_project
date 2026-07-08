@@ -13,13 +13,15 @@ def main():
     downloader = YouTubeDownloader()
 
     info = downloader.get_info(url)
-
-    qualities = QualitySelector.show(info["formats"])
+    
+    qualities = QualitySelector.show(
+        info["formats"]
+    )
 
     quality = QualitySelector.choose(qualities)
 
-    print(f"Selected quality: {quality}p")
-    
+    print(f"Selected quality: {quality['quality']}p")
+
     downloader.download(url, quality)
 
     print("Download finished ✔")

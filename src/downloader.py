@@ -13,7 +13,7 @@ class YouTubeDownloader:
     def download(self, url: str, quality=None):
         options = {
             "format": (
-                f"bestvideo[height<={quality}]+bestaudio/best[height<={quality}]"
+                f"{quality['format_id']}+bestaudio"
                 if quality
                 else "bestvideo+bestaudio/best"
             ),          
