@@ -1,7 +1,12 @@
 from src.downloader import YouTubeDownloader
+from src.dependencies import DependencyChecker
 
 
 def main():
+
+    if not DependencyChecker.check():
+        return
+
     url = input("Enter YouTube URL: ").strip()
 
     downloader = YouTubeDownloader()
