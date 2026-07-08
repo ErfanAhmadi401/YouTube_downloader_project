@@ -16,11 +16,22 @@ class YouTubeDownloader:
                 f"{quality['format_id']}+bestaudio"
                 if quality
                 else "bestvideo+bestaudio/best"
-            ),          
+            ),
+
             "merge_output_format": "mp4",
-            "outtmpl": str(self.download_path / "%(title)s.%(ext)s"),
+
+            "outtmpl": str(
+                self.download_path / "%(title)s.%(ext)s"
+            ),
+
             "cookiesfrombrowser": ("chrome",),
+
             "remote_components": ["ejs:github"],
+
+            "writesubtitles": True,
+            "writeautomaticsub": True,
+            "subtitleslangs": ["en"],
+            "convertsubs": "srt",
         }
 
         with YoutubeDL(options) as ydl:

@@ -39,6 +39,14 @@ class QualitySelector:
 
 
         for fmt in formats:
+            
+            print(
+                fmt.get("format_id"),
+                fmt.get("height"),
+                fmt.get("vcodec"),
+                fmt.get("tbr"),
+                fmt.get("filesize")
+            )
 
             height = fmt.get("height")
 
