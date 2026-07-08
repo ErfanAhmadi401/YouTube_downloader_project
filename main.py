@@ -1,15 +1,14 @@
-from yt_dlp import YoutubeDL
+from src.downloader import YouTubeDownloader
 
-def download_video(url):
-    options = {
-        "format": "best",
-    }
 
-    with YoutubeDL(options) as ydl:
-        ydl.download([url])
+def main():
+    url = input("Enter YouTube URL: ").strip()
+
+    downloader = YouTubeDownloader()
+    downloader.download(url)
+
+    print("Download finished ✔")
 
 
 if __name__ == "__main__":
-    url = input("Enter YouTube URL: ").strip()
-    download_video(url)
-    print("Download finished ✔")
+    main()
