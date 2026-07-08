@@ -17,12 +17,12 @@ class DependencyChecker:
                 missing.append(name)
 
         if missing:
+            from src.installer import DependencyInstaller
+
             print("Missing dependencies:")
+
             for item in missing:
-                print(f"- {item}")
+                print("-", item)
+                DependencyInstaller.show_guide(item)
 
-            print("\nPlease install missing dependencies and try again.")
             return False
-
-        print("All dependencies are installed ✓")
-        return True
